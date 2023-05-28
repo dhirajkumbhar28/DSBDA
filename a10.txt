@@ -1,0 +1,38 @@
+import pandas as pd
+import numpy as np
+
+csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+df = pd.read_csv(csv_url, header = None)
+col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Species']
+df = pd.read_csv(csv_url, names = col_names)
+
+df.head()
+
+column = len(list(df))
+
+df.info()
+
+np.unique(df['Species'])
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+fig, axes = plt.subplots(2, 2, figsize=(16, 8))
+axes[0,0].set_title("Distribution of First Column")
+axes[0,0].hist(df["Sepal_Length"]);
+axes[0,1].set_title("Distribution of Second Column")
+axes[0,1].hist(df["Sepal_Width"]);
+axes[1,0].set_title("Distribution of Third Column")
+axes[1,0].hist(df["Petal_Length"]);
+axes[1,1].set_title("Distribution of Fourth Column")
+axes[1,1].hist(df["Petal_Width"]);
+
+data_to_plot = [df["Sepal_Length"],df["Sepal_Width"],df["Petal_Length"],df["Petal_Width"]]
+sns.set_style("whitegrid")
+# Creating a figure instance
+fig = plt.figure(1, figsize=(12,8))
+# Creating an axes instance
+ax = fig.add_subplot(111)
+# Creating the boxplot
+bp = ax.boxplot(data_to_plot);
