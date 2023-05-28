@@ -1,0 +1,42 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+pwd
+
+dataset=pd.read_csv('C:\\Users\\Dhiraj\\Documents\\tested.csv')
+
+sns.distplot(dataset['Fare'])
+
+sns.distplot(dataset['Fare'], kde=False, bins=10)
+
+sns.jointplot(x='Age', y='Fare', data=dataset)
+
+df=dataset
+
+sns.jointplot(x = df['Age'], y = df['Fare'], kind = 'scatter')
+
+sns.jointplot(x = df['Age'], y = df['Fare'], kind = 'hex')
+
+sns.pairplot(dataset)
+
+sns.pairplot(dataset, hue='Sex')
+
+sns.rugplot(dataset['Fare'])
+
+sns.barplot(x='Sex', y='Age', data=dataset)
+
+sns.countplot(x='Sex', data=dataset)
+
+sns.boxplot(x='Sex', y='Age', data=dataset)
+
+sns.boxplot(x='Sex', y='Age', data=dataset, hue="Survived")
+
+sns.violinplot(x='Sex', y='Age', data=dataset)
+
+sns.stripplot(y = dataset['Age'], x = dataset['Pclass'])
+
+sns.swarmplot(y = dataset['Age'], x = dataset['Pclass'])
+
+dataset.hist('Fare')
